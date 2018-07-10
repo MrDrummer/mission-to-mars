@@ -9,7 +9,7 @@ const int ENABLE_R = 10;
 
 volatile unsigned int left_count = 0;
 volatile unsigned int right_count = 0;
-
+unsigned long timer = millis();
 void left_pulse_interrupt()
 {  
   left_count++;
@@ -37,9 +37,6 @@ void setup() {
 //  counts revolutions of the motor
   attachInterrupt(digitalPinToInterrupt(left_feedback_pin), left_pulse_interrupt, RISING);
   attachInterrupt(digitalPinToInterrupt(right_feedback_pin), right_pulse_interrupt, RISING);
-  delay(7440);
-  digitalWrite(ENABLE_L, LOW);
-  digitalWrite(ENABLE_R, LOW);
 
 }
 
@@ -50,8 +47,9 @@ void setup() {
 void loop() {
   
   delay(200);
-  Serial.print("\nleft_count (loop) ");Serial.print(left_count);
+  Serial.print("\nleft_count (loop) ");Serial.print(left_count); 
   Serial.print("\nright_count (loop) ");Serial.print(right_count);
+  Serial.print("\ntimer (loop) "); Serial.print(timer);
 
   while (right_count > left_count) {
     Serial.print("\nleft_count (while1) ");Serial.print(left_count);
