@@ -1,0 +1,27 @@
+
+left_count (loop) 0
+right_count (loop) 0
+timer (loop) 0
+left_count (loop) 0
+right_count (loop) 0
+timer (loop) 0
+left_count (loop) 0
+right_count (loop) 0
+timer (loop) 3
+left_count (loop) 0
+right_count (loop) 0
+timer (loop) 8
+left_count (loop) 0
+right_count (loop) 1
+timer (loop) 13
+left_count (while1) 0
+right_count (while1) 1
+right_count (count) 2
+right_count (count) 3
+right_count (count) 4
+right_count (count) 5
+right_count (count) 6
+right_count (count) 7
+right_count (count) 8
+right_count (count) 9
+right_count (count) 10

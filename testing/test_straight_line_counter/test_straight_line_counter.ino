@@ -43,5 +43,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+ if (timer <= 7440) {
  timer = millis();
-}
+ Serial.print("\ntimer (loop) "); Serial.print(timer);
+}}
