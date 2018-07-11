@@ -22,7 +22,8 @@ void right_pulse_interrupt()
 }
 
 void setup() {
-  Serial.begin(115200);
+  // put your setup code here, to run once:
+ Serial.begin(115200);
 
 //  Enable both tracks
   digitalWrite(ENABLE_L, HIGH);
@@ -40,34 +41,7 @@ void setup() {
 
 }
 
-
-
-
-
 void loop() {
-  timer = millis();
-  if (timer <= 7440) {
-    delay(200);
-    Serial.print("\nleft_count (loop) ");Serial.print(left_count); 
-    Serial.print("\nright_count (loop) ");Serial.print(right_count);
-    Serial.print("\ntimer (loop) "); Serial.print(timer);
-  
-    if (right_count > left_count) {
-      Serial.print("\nleft_count (while1) ");Serial.print(left_count);
-      Serial.print("\nright_count (while1) ");Serial.print(right_count);
-      digitalWrite(FORWARD_L, HIGH);
-      digitalWrite(FORWARD_R, LOW);
-      delay(200);
-      digitalWrite(FORWARD_R, HIGH);
-    }
-    
-    if (left_count > right_count) {
-      Serial.print("\nleft_count (while2) ");Serial.print(left_count);
-      Serial.print("\nright_count (while2) ");Serial.print(right_count);
-      digitalWrite(FORWARD_L, LOW);
-      digitalWrite(FORWARD_R, HIGH);
-      delay(200);
-      digitalWrite(FORWARD_L, HIGH);
-    }
-  }  
+  // put your main code here, to run repeatedly:
+ timer = millis();
 }
