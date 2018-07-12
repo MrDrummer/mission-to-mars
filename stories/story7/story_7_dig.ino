@@ -9,41 +9,41 @@ const int ENABLE_L = 9;
 const int ENABLE_R = 10;
 
 //const int turnTime = 880;
-//const int turnTime = 890;
-int turnTime = 820;
+const int turnTime = 890;
+//int turnTime = 820;
 //const int turnTime = 950;
 
 const int delayBetween = 500;
 
-const int RHIGH = 255;
-const int RLOW = 0;
+const int HIGH = 255;
+const int LOW = 0;
 
 
-//Makes all the things RLOW
+//Makes all the things LOW
 void stopRover() {
-  analogWrite(FORWARD_L, RLOW);
-  analogWrite(FORWARD_R, RLOW);
-  analogWrite(BACKWARD_L, RLOW);
-  analogWrite(BACKWARD_R, RLOW);
-  analogWrite(ENABLE_L, RLOW);
-  analogWrite(ENABLE_R, RLOW);
+  digitalWrite(FORWARD_L, LOW);
+  digitalWrite(FORWARD_R, LOW);
+  digitalWrite(BACKWARD_L, LOW);
+  digitalWrite(BACKWARD_R, LOW);
+  digitalWrite(ENABLE_L, LOW);
+  digitalWrite(ENABLE_R, LOW);
 }
 
 // 1 = clockwise, 0 = anti clockwise
-void turnRover(int turnDirection, int turnTimeF = turnTime) {
-  if (turnTimeF != "") {
-    turnTime = turnTimeF;
-  }
+void turnRover(int turnDirection) {//, int turnTimeF = turnTime
+//  if (turnTimeF != "") {
+//    turnTime = turnTimeF;
+//  }
   stopRover();
-  analogWrite(ENABLE_L, RHIGH);
-  analogWrite(ENABLE_R, RHIGH);
+  digitalWrite(ENABLE_L, HIGH);
+  digitalWrite(ENABLE_R, HIGH);
   
   if (turnDirection == 1) {
-    analogWrite(FORWARD_R, RHIGH);
-    analogWrite(BACKWARD_L, RHIGH);
+    digitalWrite(FORWARD_R, HIGH);
+    digitalWrite(BACKWARD_L, HIGH);
   } else if (turnDirection == 0) {
-    analogWrite(FORWARD_L, RHIGH);
-    analogWrite(BACKWARD_R, RHIGH);
+    digitalWrite(FORWARD_L, HIGH);
+    digitalWrite(BACKWARD_R, HIGH);
   }
   
   delay(turnTime);
@@ -54,14 +54,14 @@ void turnRover(int turnDirection, int turnTimeF = turnTime) {
 // 1 = forward, 0 = backwards.
 void moveRover(int moveTime, int moveDirection) {
   stopRover();
-  analogWrite(ENABLE_L, RHIGH);
-  analogWrite(ENABLE_R, RHIGH);
+  digitalWrite(ENABLE_L, HIGH);
+  digitalWrite(ENABLE_R, HIGH);
   if (moveDirection == 1) {
-    analogWrite(FORWARD_L, RHIGH);
-    analogWrite(FORWARD_R, RHIGH);
+    digitalWrite(FORWARD_L, HIGH);
+    digitalWrite(FORWARD_R, HIGH);
   } else if (moveDirection == 0) {
-    analogWrite(BACKWARD_L, RHIGH);
-    analogWrite(BACKWARD_R, RHIGH);
+    digitalWrite(BACKWARD_L, HIGH);
+    digitalWrite(BACKWARD_R, HIGH);
   }
   delay(moveTime);
   stopRover();
