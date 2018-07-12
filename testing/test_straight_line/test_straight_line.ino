@@ -22,18 +22,6 @@ void right_pulse_interrupt()
   right_count++;
   Serial.print("\nright_count (count) ");Serial.print(right_count);
 }
-//int custom_timer(int milli, int maxTime, char side) {
-//  Serial.println("\ncustom_timer");
-//  if (milli >= maxTime) {
-//    if (side == "R") {
-//      right_pulse_interrupt();
-//    } else {
-//      left_pulse_interrupt();
-//    }
-//    return 0;
-//  }
-//  return milli;
-//}
 
 void setup() {
   Serial.begin(115200);
@@ -60,37 +48,42 @@ void setup() {
 
 
 void loop() {
-//  timer_L = millis();
-//  timer_R = millis();
-//  timer_L = custom_timer(timer_L, 400, "L");
-//  timer_R = custom_timer(timer_R, 500, "R");
   timer = millis();
-  if (timer <= 7440) { //50000
-    Serial.print("\nleft_count (loop) ");Serial.print(left_count); 
-    Serial.print("\nright_count (loop) ");Serial.print(right_count);
-    Serial.print("\ntimer (loop) "); Serial.print(timer);
-  
-    if (right_count > left_count) {
-      Serial.print("\nleft_count (while1) ");Serial.print(left_count);
-      Serial.print("\nright_count (while1) ");Serial.print(right_count);
-      digitalWrite(FORWARD_L, HIGH);
-      while (right_count >= left_count) {
-        digitalWrite(FORWARD_R, LOW);
-      }
-      digitalWrite(FORWARD_R, HIGH);
-    }
-    
-    if (left_count > right_count) {
-      Serial.print("\nleft_count (while2) ");Serial.print(left_count);
-      Serial.print("\nright_count (while2) ");Serial.print(right_count);
-      digitalWrite(FORWARD_R, HIGH);
-      while (left_count >= right_count) {
-        digitalWrite(FORWARD_L, LOW);
-      }
-      digitalWrite(FORWARD_L, HIGH);
-    
-   }
-   digitalWrite(FORWARD_L, HIGH);
-  }  
+  if (timer >= 8430) {
+  digitalWrite(ENABLE_L, LOW);
+  digitalWrite(ENABLE_R, LOW);
+//  if (true) {
+//    Serial.print("\nleft_count (loop) ");Serial.print(left_count); 
+//    Serial.print("\nright_count (loop) ");Serial.print(right_count);
+//    Serial.print("\ntimer (loop) "); Serial.print(timer);
+//  
+//    if (right_count > left_count) {
+//      Serial.print("\nleft_count (while1) ");Serial.print(left_count);
+//      Serial.print("\nright_count (while1) ");Serial.print(right_count);
+//      digitalWrite(FORWARD_L, HIGH);
+//      while (right_count > left_count) {
+//        digitalWrite(FORWARD_R, LOW);
+//        Serial.println("running left");
+//        delay(500);
+//      }
+//      digitalWrite(FORWARD_R, HIGH);
+//      Serial.print("\nleft_count (while1 END) ");Serial.print(left_count);
+//      Serial.print("\nright_count (while1 END) ");Serial.print(right_count);
+//    }
+//    
+//    if (left_count > right_count) {
+//      Serial.print("\nleft_count (while2) ");Serial.print(left_count);
+//      Serial.print("\nright_count (while2) ");Serial.print(right_count);
+//      digitalWrite(FORWARD_R, HIGH);
+//      while (left_count > right_count) {
+//        digitalWrite(FORWARD_L, LOW);
+//        Serial.println("running right");
+//        delay(500);
+//      }
+//      digitalWrite(FORWARD_L, HIGH);
+//      Serial.print("\nleft_count (while2 END) ");Serial.print(left_count);
+//      Serial.print("\nright_count (while2 END) ");Serial.print(right_count);
+//    }
+  }
 }
 
