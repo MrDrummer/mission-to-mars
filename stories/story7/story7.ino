@@ -31,9 +31,9 @@ void stopRover() {
 
 // 1 = clockwise, 0 = anti clockwise
 void turnRover(int turnDirection, int turnTimeF = turnTime) {
-  if (turnTimeF != "") {
-    turnTime = turnTimeF;
-  }
+//  if (turnTimeF != "") {
+//    turnTime = turnTimeF;
+//  }
   stopRover();
   analogWrite(ENABLE_L, RHIGH);
   analogWrite(ENABLE_R, RHIGH);

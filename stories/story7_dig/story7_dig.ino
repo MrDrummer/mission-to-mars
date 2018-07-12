@@ -9,15 +9,11 @@ const int ENABLE_L = 9;
 const int ENABLE_R = 10;
 
 //const int turnTime = 880;
-const int turnTime = 890;
+int turnTime = 890;
 //int turnTime = 820;
 //const int turnTime = 950;
 
 const int delayBetween = 500;
-
-const int HIGH = 255;
-const int LOW = 0;
-
 
 //Makes all the things LOW
 void stopRover() {
@@ -30,10 +26,7 @@ void stopRover() {
 }
 
 // 1 = clockwise, 0 = anti clockwise
-void turnRover(int turnDirection) {//, int turnTimeF = turnTime
-//  if (turnTimeF != "") {
-//    turnTime = turnTimeF;
-//  }
+void turnRover(int turnDirection) {
   stopRover();
   digitalWrite(ENABLE_L, HIGH);
   digitalWrite(ENABLE_R, HIGH);
@@ -71,22 +64,26 @@ void moveRover(int moveTime, int moveDirection) {
 
 // the setup function runs once when you press reset or power the board
 void setup() {
-  moveRover(2000, 1);
+//  while (true) {
+//    turnRover(1);
+//    delay(2000);
+//  }
+  moveRover(1900, 1);
   delay(delayBetween);
-  turnRover(0);
+  turnRover(1);
   delay(delayBetween);
   stopRover();
   moveRover(2100, 1);
   delay(delayBetween);
-  turnRover(0);
+  turnRover(1);
   delay(delayBetween);
   stopRover();
-  moveRover(2200, 1);
+  moveRover(2100, 1);
   delay(delayBetween);
-  turnRover(0);
+  turnRover(1);
   delay(delayBetween);
   stopRover();
-  moveRover(2050, 1);
+  moveRover(2250, 1);
   delay(delayBetween);
 //  turnRover(0);
   stopRover();
